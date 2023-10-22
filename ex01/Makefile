@@ -6,12 +6,12 @@
 #    By: mcarecho <mcarecho@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 13:19:49 by mcarecho          #+#    #+#              #
-#    Updated: 2023/10/19 22:49:15 by mcarecho         ###   ########.fr        #
+#    Updated: 2023/10/21 22:12:41 by mcarecho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = awesomePhonebook
-SRC  = main.cpp Contact.cpp Phonebook.cpp
+SRC  = main.cpp Contact.cpp Phonebook.cpp phonebookUtils.cpp phonebookTable.cpp
 
 SOURCES_DIR = ./
 
@@ -25,22 +25,24 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 
 $(OBJ_DIR)/%.o: $(SOURCES_DIR)/%.cpp
-			   $(CC) $(CFLAGS) -c $< -o $@
+			   @$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJS)
-		 $(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+		 @$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+		 @echo "\033[32mAwesome Phonebook is ready to use!\033[0m"
 
 $(OBJ_DIR):
-		 mkdir -p $(OBJ_DIR)
+		 @mkdir -p $(OBJ_DIR)
 
 clean:
-		 rm -rf $(OBJ_DIR)
+		 @rm -rf $(OBJ_DIR)
 
 fclean: clean
-		 rm -rf $(NAME)
+		 @rm -rf $(NAME)
 
 re: 	fclean all
 
 .PHONY: all clean fclean re
+

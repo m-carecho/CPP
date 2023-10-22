@@ -6,32 +6,35 @@
 /*   By: mcarecho <mcarecho@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:42:24 by mcarecho          #+#    #+#             */
-/*   Updated: 2023/10/19 21:19:47 by mcarecho         ###   ########.fr       */
+/*   Updated: 2023/10/21 21:51:50 by mcarecho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
-#include "Contact.hpp"
 
 int main(){
-
 	Phonebook phonebook;
-	Contact novoContato;
 
+    phonebook.userManual();
 	while (true){
-		std::cout << "Digite um comando (add, search, exit): ";
-        std::string command;
-        std::cin >> command;
+		std::string command;
+        std::cout << GREEN " 📝 ADD"; std::cout << CYAN " 🔍 SEARCH"; std::cout << RED " ❌ EXIT " RESET  << std::endl;
 
-        if (command == "add") {
-            novoContato = phonebook.getContact(); // Obtém o novo contato
-            phonebook.addContact(novoContato); // Adiciona o contato à lista
-        } else if (command == "search") {
-           std::cout << "q";
-        } else if (command == "exit") {
-            break; // Sai do loop e encerra o programa
+        command = phonebook.readLine();
+        if (command == "ADD")
+            phonebook.getContact();
+        else if (command == "SEARCH") {
+            if (phonebook.index == 0)
+		    std::cout << "No contacts in the phonebook." << std::endl;
+	        else {
+                phonebook.printTable();
+                phonebook.printFullContact();
+            }
+        }else if (command == "EXIT") {
+            break;
         } else {
-            std::cout << "Comando inválido. Tente novamente." << std::endl;
+            std::cout << RED "🚨 Error 🚨" RESET << std::endl;
+            std::cout << "Invalid input, please try again.." << std::endl;
         }
     }
 

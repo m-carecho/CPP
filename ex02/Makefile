@@ -5,13 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mcarecho <mcarecho@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/18 13:07:10 by mcarecho          #+#    #+#              #
-#    Updated: 2023/10/21 22:24:08 by mcarecho         ###   ########.fr        #
+#    Created: 2023/10/18 13:19:49 by mcarecho          #+#    #+#              #
+#    Updated: 2023/10/21 23:24:20 by mcarecho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
-SRC  = megaphone.cpp
+NAME = Account
+SRC  = Account.cpp tests.cpp
 
 SOURCES_DIR = ./
 
@@ -22,7 +22,7 @@ SOURCES = $(addprefix $(SOURCES_DIR)/,$(SRC))
 OBJS = $(SOURCES:$(SOURCES_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 
 $(OBJ_DIR)/%.o: $(SOURCES_DIR)/%.cpp
 			   @$(CC) $(CFLAGS) -c $< -o $@
@@ -31,7 +31,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJS)
 		 @$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-		 @echo "\033[32m*NOISE* megaphone is ready *NOISE*\033[0m"
+		 @echo "\033[32mDamn, you are impressive!\033[0m"
 
 $(OBJ_DIR):
 		 @mkdir -p $(OBJ_DIR)
@@ -45,3 +45,4 @@ fclean: clean
 re: 	fclean all
 
 .PHONY: all clean fclean re
+
