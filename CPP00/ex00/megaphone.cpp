@@ -6,7 +6,7 @@
 /*   By: mcarecho <mcarecho@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:41:01 by mcarecho          #+#    #+#             */
-/*   Updated: 2023/10/18 13:06:25 by mcarecho         ###   ########.fr       */
+/*   Updated: 2023/10/21 23:57:50 by mcarecho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int main(int argc, char** argv)
 	for(int i = 1; argv[i]; i++)
 	{
 		for(int j=0; argv[i][j]; j++)
-			std::cout << (char)toupper(argv[i][j]);
+			if(islower(argv[i][j]))
+				std::cout << (char)toupper(argv[i][j]);
+			else
+				std::cout << (char)(argv[i][j]);
 	}
 	std::cout << std::endl;
 	return 0;
