@@ -6,12 +6,12 @@
 #    By: mcarecho <mcarecho@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/10 00:07:35 by mcarecho          #+#    #+#              #
-#    Updated: 2023/11/12 18:25:39 by mcarecho         ###   ########.fr        #
+#    Updated: 2023/11/12 18:25:34 by mcarecho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fixedPointer
-SRC  = main.cpp Fixed.cpp
+SRC  = main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 SOURCES_DIR = ./
 

@@ -6,7 +6,7 @@
 /*   By: mcarecho <mcarecho@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 23:56:45 by mcarecho          #+#    #+#             */
-/*   Updated: 2023/11/12 17:18:32 by mcarecho         ###   ########.fr       */
+/*   Updated: 2023/11/12 19:05:50 by mcarecho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int main( void ) {
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl << std::endl;
 
-	std::cout << YELLOW << "More tests" << RESET << std::endl << std::endl;
+	std::cout << YELLOW << "More tests" << RESET << std::endl;
 
 	std::cout << GREEN << "The 6 comparison operators: >, <, >=, <=, == and !=" << RESET<< std::endl;
 	Fixed MyA(5);
@@ -51,20 +51,33 @@ int main( void ) {
     std::cout << "a + b: " << c.toFloat() << std::endl;
     std::cout << "a - b: " << d.toFloat() << std::endl;
     std::cout << "a * b: " << e.toFloat() << std::endl;
-    std::cout << "a / b: " << f.toFloat() << std::endl;
+    std::cout << "a / b: " << f.toFloat() << std::endl << std::endl;
 
-	std::cout << GREEN << "The 2 increment (++) and decrement (--) operators" << RESET<< std::endl;
+	std::cout << GREEN << "The 2 increment (++) and decrement (--) operators (pre)" << RESET<< std::endl;
 
 	Fixed g = MyA;
     Fixed h = MyB;
 
-    std::cout << "g antes do incremento: "  << g << std::endl;
+    std::cout << "g before the increment: "  << g << std::endl;
     ++g;
-    std::cout << "g depois do incremento: " << g << std::endl;
+    std::cout << "g after the increment: " << g << std::endl;
 
-    std::cout << "h antes do decremento: "  << h << std::endl;
-    h--;
-    std::cout << "h depois do decremento: " << h<< std::endl;
+    std::cout << "h before the increment: "  << h << std::endl;
+    --h;
+    std::cout << "h after the increment: " << h<< std::endl << std::endl;
+
+	std::cout << GREEN << "The 2 increment (++) and decrement (--) operators (post)" << RESET<< std::endl ;
+
+    Fixed i = MyA;
+    Fixed j = MyB;
+
+    std::cout << "i before the increment: "  << i << std::endl;
+    i++;
+    std::cout << "i after the increment: " << i << std::endl;
+
+    std::cout << "j before the increment: "  << j << std::endl;
+    j--;
+    std::cout << "j after the increment: " << j << std::endl;
 
 	std::cout << GREEN << "testing minimum value and maximum value" << RESET<< std::endl;
 

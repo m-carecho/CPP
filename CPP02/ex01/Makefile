@@ -6,12 +6,12 @@
 #    By: mcarecho <mcarecho@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/10 00:07:35 by mcarecho          #+#    #+#              #
-#    Updated: 2023/11/10 00:08:06 by mcarecho         ###   ########.fr        #
+#    Updated: 2023/11/12 18:25:30 by mcarecho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fixedPointer
-SRC  = main.cpp Fixed.cpp 
+SRC  = main.cpp Fixed.cpp
 
 SOURCES_DIR = ./
 
@@ -31,7 +31,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJS)
 		 @$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-		 @echo "\033[31;1m* 🧟 I think I hear a.. zombie? 🧟 \033[0m"
+		 @echo "\033[32;1m Compiled successfully \033[0m"
 
 $(OBJ_DIR):
 		 @mkdir -p $(OBJ_DIR)
