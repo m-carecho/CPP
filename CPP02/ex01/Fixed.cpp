@@ -6,7 +6,7 @@
 /*   By: mcarecho <mcarecho@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 23:54:00 by mcarecho          #+#    #+#             */
-/*   Updated: 2023/11/12 14:14:15 by mcarecho         ###   ########.fr       */
+/*   Updated: 2023/11/12 15:00:05 by mcarecho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,14 @@ Fixed::Fixed( const Fixed & src ){
 
 Fixed::Fixed(const int integerNumber)
 {
-
+	std::cout << "Int constructor called" << std::endl;
+	_fixedPoint = integerNumber << _bits;
 }
 
 Fixed::Fixed(const float floatNumber)
 {
-
+	std::cout << "Float constructor called" << std::endl;
+	_fixedPoint = roundf(floatNumber * (1 << _bits));
 }
 
 /*
@@ -54,17 +56,29 @@ Fixed &				Fixed::operator=( Fixed const & rhs ){
 	return *this;
 }
 
+std::ostream &			operator<<( std::ostream & o, Fixed const & i ){
+	o << i.toFloat();
+	return o;
+}
+
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
 	int Fixed::getRawBits(void) const{
-		std::cout << "getRawBits member function called" << std::endl;
 		return (this->_fixedPoint);
 	}
 
 	void Fixed::setRawBits(int const raw){
 		this->_fixedPoint = raw;
+	}
+
+	float Fixed::toFloat(void) const{
+		return((float)_fixedPoint / (float)(1 << _bits));
+	}
+
+	int Fixed::toInt(void) const{
+		return (_fixedPoint >> _bits);
 	}
 
 /*
